@@ -11,7 +11,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 
-const LOGO_SRC = "/icons/Logo FTI.webp";
+const LOGO_SRC = "/icons/Logo FTI 2.webp";
 const RING_SIZE = 320;
 const RING_STROKE = 5;
 const RING_RADIUS = (RING_SIZE - RING_STROKE) / 2;
