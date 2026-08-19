@@ -19,12 +19,25 @@ export default function SplashProvider({ children }: SplashProviderProps) {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isLoading ? "hidden" : "auto";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isLoading]);
+
   return (
     <>
-      <AnimatePresence>
-        {isLoading && <Loading key="splash" />}
-      </AnimatePresence>
-      {children}
+      <div
+        className={`transition-all duration-700 ease-out ${
+          isLoading ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
+        {children}
+      </div>
+
+      <AnimatePresence>{isLoading && <Loading key="splash" />}</AnimatePresence>
     </>
   );
 }
