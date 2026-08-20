@@ -7,7 +7,7 @@ export default function NotFoundPage() {
       <div className="w-full max-w-4xl">
         <div
           className="
-            rounded-3xl border border-slate-200/70 bg-white px-6 py-12
+            rounded-3xl border border-slate-200/70 bg-gray-300 px-6 py-12
             shadow-[8px_8px_0px_0px_rgba(226,232,240,1)]
             sm:px-12 sm:py-16
           "
