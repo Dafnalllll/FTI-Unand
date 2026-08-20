@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavItemProps {
   href: string;
@@ -6,18 +9,31 @@ interface NavItemProps {
 }
 
 export default function NavItem({ href, label }: NavItemProps) {
+  const pathname = usePathname();
+  const isActive = pathname === href || pathname.startsWith(href + "/");
+
   return (
     <Link
       href={href}
-      className="
-        text-[17px]
-        font-medium
-        text-slate-600
-        transition-colors
-        hover:text-sky-600
-      "
+      className={`
+        relative text-[15px] font-medium
+        transition-colors duration-300
+        group
+        ${isActive ? "text-gray-900" : "text-gray-600"}
+      `}
     >
-      {label}
+      <span>{label}</span>
+
+      {/* Underline indicator */}
+      <span
+        className={`
+          absolute -bottom-1 left-0 h-0.5
+          rounded-full
+          bg-gray-400
+          transition-all duration-300 ease-out
+          ${isActive ? "w-full" : "w-0 group-hover:w-full"}
+        `}
+      />
     </Link>
   );
 }
