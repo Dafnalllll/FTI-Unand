@@ -19,7 +19,7 @@ export default function NavItem({ href, label }: NavItemProps) {
         relative text-[15px] font-medium
         transition-colors duration-300
         group
-        ${isActive ? "text-gray-900" : "text-gray-600"}
+        ${isActive ? "text-gray-400" : "text-gray-100"}
       `}
     >
       <span>{label}</span>

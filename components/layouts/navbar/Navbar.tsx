@@ -5,15 +5,14 @@ import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4">
+    <header className="sticky top-0 z-50 px-4 pt-4 ">
       <div
         className="
           mx-auto
           max-w-7xl
           rounded-2xl
-          border border-slate-200/60
-          bg-white/80
-          backdrop-blur-xl
+          bg-gray-600
+          border border-white/50
           shadow-lg
         "
       >
