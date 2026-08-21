@@ -111,7 +111,7 @@ export default function HeroImageMobile() {
           <motion.div
             className="
               absolute inset-0
-              bg-linear-to-r
+              bg-linearpage-to-r
               from-transparent
               via-white/20
               to-transparent
@@ -149,11 +149,11 @@ export default function HeroImageMobile() {
               shadow-xl
             "
           >
-            <p className="text-xs font-medium text-slate-500">
+            <p className="text-xs font-medium text-center text-slate-500">
               Fakultas Teknologi Informasi
             </p>
 
-            <h3 className="mt-1 text-lg font-bold text-slate-900">
+            <h3 className="mt-1 text-lg font-bold text-center text-slate-900">
               Universitas Andalas
             </h3>
           </motion.div>
