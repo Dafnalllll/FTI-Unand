@@ -1,14 +1,6 @@
 import NavItem from "./NavItem";
 import Input from "@/components/ui/Input";
-
-const menus = [
-  { label: "Profil", href: "/profil" },
-  { label: "Program Studi", href: "/program-studi" },
-  { label: "Akademik", href: "/akademik" },
-  { label: "Beasiswa", href: "/beasiswa" },
-  { label: "Layanan", href: "/layanan" },
-  { label: "Belajar Di FTI", href: "/belajar" },
-];
+import { navigation } from "@/data/navigation";
 
 export default function DesktopMenu() {
   return (
@@ -21,7 +13,7 @@ export default function DesktopMenu() {
           ml-16
         "
       >
-        {menus.map((item) => (
+        {navigation.map((item) => (
           <NavItem key={item.label} {...item} />
         ))}
       </nav>

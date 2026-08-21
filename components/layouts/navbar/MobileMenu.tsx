@@ -8,15 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
+import { navigation } from "@/data/navigation";
 
-const mobileMenus = [
-  { label: "Profil", href: "/profil" },
-  { label: "Program Studi", href: "/program-studi" },
-  { label: "Akademik", href: "/akademik" },
-  { label: "Beasiswa", href: "/beasiswa" },
-  { label: "Layanan", href: "/layanan" },
-  { label: "Belajar Di FTI", href: "/belajar" },
-];
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -186,7 +179,7 @@ export default function MobileMenu() {
 
             {/* Menu Items */}
             <nav className="flex flex-col px-6 pb-4">
-              {mobileMenus.map((item, index) => {
+              {navigation.map((item, index) => {
                 const isActive =
                   pathname === item.href ||
                   pathname.startsWith(item.href + "/");
