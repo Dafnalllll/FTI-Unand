@@ -69,10 +69,10 @@ export default function HeroImageMobile() {
           }}
           className="
             relative
-            h-[320px]
+            h-80
             w-full
             overflow-hidden
-            rounded-[32px]
+            rounded-4x1
             shadow-[0_20px_60px_rgba(0,0,0,0.15)]
           "
         >
@@ -100,7 +100,7 @@ export default function HeroImageMobile() {
           <div
             className="
               absolute inset-0
-              bg-gradient-to-t
+              bg-linear-to-t
               from-black/50
               via-black/10
               to-transparent
@@ -111,7 +111,7 @@ export default function HeroImageMobile() {
           <motion.div
             className="
               absolute inset-0
-              bg-gradient-to-r
+              bg-linear-to-r
               from-transparent
               via-white/20
               to-transparent
