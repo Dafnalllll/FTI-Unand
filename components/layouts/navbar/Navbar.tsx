@@ -2,21 +2,27 @@ import Link from "next/link";
 import Image from "next/image";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
+import NavbarPattern from "./NavbarPattern";
 
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 ">
       <div
         className="
+          relative
           mx-auto
           max-w-7xl
           rounded-2xl
           bg-gray-600
           border border-white/50
           shadow-lg
+          overflow-hidden
         "
       >
-        <div className="flex h-20 items-center justify-between px-6 lg:px-8">
+        {/* Corak dekoratif bertema IT */}
+        <NavbarPattern />
+
+        <div className="relative flex h-20 items-center justify-between px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0 group">
             <Image
