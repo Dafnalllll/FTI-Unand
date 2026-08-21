@@ -179,3 +179,21 @@ div {
 .navbar-aurora {
   animation: aurora 12s ease-in-out infinite;
 }
+
+.footer-node {
+  animation: nodePulse 6s ease-in-out infinite;
+}
+
+.footer-line {
+  stroke-dasharray: 8 12;
+  animation: lineFlow 16s linear infinite;
+  opacity: 0.4;
+}
+
+.footer-aurora {
+  animation: aurora 18s ease-in-out infinite;
+}
+
+.footer-glow {
+  animation: floatHex 12s ease-in-out infinite;
+}
