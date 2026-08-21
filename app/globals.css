@@ -111,3 +111,71 @@ main,
 div {
   min-width: 0;
 }
+
+@keyframes floatHex {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.hex-pattern {
+  animation: floatHex 8s ease-in-out infinite;
+}
+
+@keyframes nodePulse {
+  0% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+}
+
+@keyframes lineFlow {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+@keyframes aurora {
+  0% {
+    transform: translateX(-10%);
+  }
+
+  50% {
+    transform: translateX(10%);
+  }
+
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+.navbar-node {
+  animation: nodePulse 4s ease-in-out infinite;
+}
+
+.navbar-line {
+  stroke-dasharray: 6 8;
+  animation: lineFlow 8s linear infinite;
+}
+
+.navbar-aurora {
+  animation: aurora 12s ease-in-out infinite;
+}
