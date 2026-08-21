@@ -2,12 +2,15 @@ import Image from "next/image";
 
 import FooterLink from "./FooterLink";
 import FooterSocial from "./FooterSocial";
+import FooterPattern from "./FooterPattern";
 
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="relative bg-gray-700 text-white overflow-hidden">
+      {/* Background Pattern */}
+      <FooterPattern />
       {/* Decorative Top Accent */}
       <div className="h-1.5 bg-linear-to-r from-gray-500 via-gray-400 to-gray-500" />
 
