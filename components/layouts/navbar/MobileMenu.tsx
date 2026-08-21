@@ -2,9 +2,12 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Search, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
+import Button from "@/components/ui/Button";
+import Input from "@/components/ui/Input";
 
 const mobileMenus = [
   { label: "Profil", href: "/profil" },
@@ -56,7 +59,7 @@ export default function MobileMenu() {
         className="
           relative flex items-center justify-center
           w-10 h-10 rounded-full
-          text-slate-600 hover:bg-slate-100
+          text-gray-100 hover:bg-slate-100
           transition-colors duration-200
         "
         aria-label={open ? "Tutup menu" : "Buka menu"}
@@ -90,7 +93,11 @@ export default function MobileMenu() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0   z-40"
+            className="
+            fixed inset-0 z-40
+            bg-slate-900/20
+            backdrop-blur-sm
+          "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -105,17 +112,38 @@ export default function MobileMenu() {
         {open && (
           <motion.div
             className="
-              fixed inset-x-0 top-21 z-50
-              bg-white/95 backdrop-blur-xl
-              border-b border-slate-200/60
-              shadow-[0_20px_60px_-15px_rgba(0,0,0,0.12)]
-              origin-top
-            "
+            fixed inset-x-3 top-20 z-50
+            bg-gray-600 backdrop-blur-xl
+            border border-slate-200/60
+            rounded-3xl
+            shadow-[0_25px_80px_-20px_rgba(0,0,0,0.18)]
+            overflow-y-auto
+            max-h-[calc(100vh-6rem)]
+            origin-top
+          "
             initial={{ scaleY: 0, opacity: 0 }}
             animate={{ scaleY: 1, opacity: 1 }}
             exit={{ scaleY: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
+            <div className="flex justify-end px-4 pt-4">
+              <button
+                onClick={close}
+                className="
+                w-10 h-10
+                flex items-center justify-center
+                rounded-full
+                bg-slate-100
+                text-slate-600
+                hover:bg-slate-200
+                hover:text-slate-900
+                transition-all duration-200
+              "
+                aria-label="Close Menu"
+              >
+                <X size={18} />
+              </button>
+            </div>
             {/* Search Bar */}
             <motion.div
               className="px-6 pt-6 pb-4"
@@ -123,32 +151,41 @@ export default function MobileMenu() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.3 }}
             >
-              <div
-                className="
-                  flex items-center gap-2.5
-                  bg-slate-50 rounded-full
-                  border border-slate-200
-                  px-4 py-2.5
-                  focus-within:border-gray-800
-                  transition-all duration-300
-                "
-              >
-                <Search size={15} className="text-slate-400 shrink-0" />
-                <input
-                  type="text"
-                  placeholder="Cari di FTI..."
+              <div className="flex items-center gap-3 mb-5">
+                <div
                   className="
-                    bg-transparent outline-none
-                    text-sm text-slate-600
-                    placeholder:text-slate-400
-                    w-full
-                  "
-                />
+                  relative
+                  w-24 h-24
+                  overflow-hidden
+                  shrink-0
+                "
+                >
+                  <Image
+                    src="/icons/Logo FTI 2.webp"
+                    alt="Logo FTI"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-black">
+                    Fakultas Teknologi Informasi
+                  </h3>
+
+                  <p className="text-xs text-white">Universitas Andalas</p>
+                </div>
               </div>
+
+              {/* Search Input */}
+              <Input
+                placeholder="Cari di FTI..."
+                className="w-full focus:w-full"
+              />
             </motion.div>
 
             {/* Menu Items */}
-            <nav className="flex flex-col px-6 pb-6">
+            <nav className="flex flex-col px-6 pb-4">
               {mobileMenus.map((item, index) => {
                 const isActive =
                   pathname === item.href ||
@@ -168,17 +205,17 @@ export default function MobileMenu() {
                     <Link
                       href={item.href}
                       className={`
-                        group flex items-center justify-between
-                        py-3.5
-                        border-b border-slate-100 last:border-b-0
-                        text-[15px] font-medium
-                        transition-colors duration-200
-                        ${
-                          isActive
-                            ? "text-gray-600"
-                            : "text-slate-600 hover:text-slate-900"
-                        }
-                      `}
+                      group flex items-center justify-between
+                      px-4 py-4
+                      rounded-2xl
+                      mb-2
+                      transition-all duration-300
+                      ${
+                        isActive
+                          ? "bg-slate-900 text-white shadow-lg"
+                          : "bg-white text-slate-700 hover:bg-slate-50 hover:shadow-md"
+                      }
+                    `}
                     >
                       <div className="flex items-center gap-3">
                         {/* Dot indicator */}
@@ -188,8 +225,8 @@ export default function MobileMenu() {
                             transition-all duration-300
                             ${
                               isActive
-                                ? "bg-gray-900 scale-100"
-                                : "bg-gray-400 scale-75 group-hover:bg-gray-300 group-hover:scale-100"
+                                ? "bg-white scale-100"
+                                : "bg-slate-300 scale-75 group-hover:bg-slate-500 group-hover:scale-100"
                             }
                           `}
                         />
@@ -202,8 +239,8 @@ export default function MobileMenu() {
                           transition-all duration-200
                           ${
                             isActive
-                              ? "text-gray-600 translate-x-0"
-                              : "text-gray-400 -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
+                              ? "text-white translate-x-0"
+                              : "text-slate-400 -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
                           }
                         `}
                       />
@@ -212,6 +249,11 @@ export default function MobileMenu() {
                 );
               })}
             </nav>
+
+            {/* Contact Button */}
+            <div className="px-6 pb-6">
+              <Button>Hubungi Kami</Button>
+            </div>
 
             {/* Bottom accent */}
             <motion.div
