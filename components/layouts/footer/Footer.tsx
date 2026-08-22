@@ -216,20 +216,62 @@ export default function Footer() {
 
             <div
               className="
-                overflow-hidden rounded-2xl
-                border-2 border-white/10
-                shadow-[6px_6px_0px_0px_rgba(250,204,21,0.15)]
-                h-55
-                relative
-              "
+              group
+              relative
+              overflow-hidden
+              rounded-3xl
+              border border-white/10
+              bg-white/4
+              backdrop-blur-sm
+              hover:-translate-y-1
+              hover:border-gray-300/20
+              shadow-[0_12px_40px_rgba(0,0,0,0.25)]
+              hover:shadow-[0_24px_80px_rgba(0,0,0,0.4)]
+              transition-all duration-500
+            "
             >
+              {/* Glow */}
+              <div
+                className="
+                absolute
+                -top-16
+                -right-16
+                h-48
+                w-48
+                rounded-full
+                bg-gray-300/10
+                blur-3xl
+                z-10
+              "
+              />
+
+              {/* Soft Overlay */}
+              <div
+                className="
+                absolute inset-0 z-10                  
+                bg-linear-to-t
+                from-black/20
+                via-transparent
+                to-transparent
+                pointer-events-none
+              "
+              />
+
+              {/* Map */}
               <iframe
                 title="FTI Unand"
                 width="100%"
-                height="100%"
+                height="260"
                 loading="lazy"
                 src="https://maps.google.com/maps?q=Fakultas%20Teknologi%20Informasi%20Universitas%20Andalas&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                className="grayscale-30 hover:grayscale-0 transition-all duration-500"
+                className="
+                h-65
+                w-full
+                grayscale-10
+                brightness-95
+                group-hover:brightness-100
+                transition-all duration-700
+              "
               />
             </div>
           </div>
