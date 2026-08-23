@@ -16,7 +16,7 @@ export default function Navbar() {
           bg-gray-600
           border border-white/50
           shadow-lg
-          overflow-hidden
+          overflow-visible
         "
       >
         {/* Corak dekoratif bertema IT */}

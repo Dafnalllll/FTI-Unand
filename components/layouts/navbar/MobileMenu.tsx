@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight,ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import { navigation } from "@/data/navigation";
@@ -13,6 +13,7 @@ import { navigation } from "@/data/navigation";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
   const pathname = usePathname();
   const close = useCallback(() => setOpen(false), []);
 
@@ -184,6 +185,8 @@ export default function MobileMenu() {
                   pathname === item.href ||
                   pathname.startsWith(item.href + "/");
 
+                const isExpanded = expanded === item.label;
+
                 return (
                   <motion.div
                     key={item.label}
@@ -195,49 +198,126 @@ export default function MobileMenu() {
                       ease: [0.22, 1, 0.36, 1],
                     }}
                   >
-                    <Link
-                      href={item.href}
-                      className={`
-                      group flex items-center justify-between
-                      px-4 py-4
-                      rounded-2xl
-                      mb-2
-                      transition-all duration-300
-                      ${
-                        isActive
-                          ? "bg-slate-900 text-white shadow-lg"
-                          : "bg-white text-slate-700 hover:bg-slate-50 hover:shadow-md"
-                      }
-                    `}
-                    >
-                      <div className="flex items-center gap-3">
-                        {/* Dot indicator */}
-                        <span
-                          className={`
-                            w-1.5 h-1.5 rounded-full shrink-0
-                            transition-all duration-300
-                            ${
-                              isActive
-                                ? "bg-white scale-100"
-                                : "bg-slate-300 scale-75 group-hover:bg-slate-500 group-hover:scale-100"
-                            }
-                          `}
-                        />
-                        <span>{item.label}</span>
-                      </div>
-
-                      <ChevronRight
-                        size={14}
+                    {/* Menu Utama */}
+                    {item.children ? (
+                      <button
+                        onClick={() =>
+                          setExpanded(isExpanded ? null : item.label)
+                        }
                         className={`
-                          transition-all duration-200
-                          ${
-                            isActive
-                              ? "text-white translate-x-0"
-                              : "text-slate-400 -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
-                          }
+                        w-full
+                        group flex items-center justify-between
+                        px-4 py-4
+                        rounded-2xl
+                        mb-2
+                        transition-all duration-300
+                        ${
+                          isActive
+                            ? "bg-slate-900 text-white shadow-lg"
+                            : "bg-white text-slate-700 hover:bg-slate-50 hover:shadow-md"
+                        }
+                      `}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`
+                            w-1.5 h-1.5 rounded-full shrink-0
+                            ${isActive ? "bg-white" : "bg-slate-300"}
+                          `}
+                          />
+                          <span>{item.label}</span>
+                        </div>
+
+                        <ChevronDown
+                          size={16}
+                          className={`
+                          transition-transform duration-300
+                          ${isExpanded ? "rotate-180" : ""}
                         `}
-                      />
-                    </Link>
+                        />
+                      </button>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={close}
+                        className={`
+                        group flex items-center justify-between
+                        px-4 py-4
+                        rounded-2xl
+                        mb-2
+                        transition-all duration-300
+                        ${
+                          isActive
+                            ? "bg-slate-900 text-white shadow-lg"
+                            : "bg-white text-slate-700 hover:bg-slate-50 hover:shadow-md"
+                        }
+                    `}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`
+                            w-1.5 h-1.5 rounded-full shrink-0
+                            ${isActive ? "bg-white" : "bg-slate-300"}
+                          `}
+                          />
+                          <span>{item.label}</span>
+                        </div>
+
+                        <ChevronRight size={14} />
+                      </Link>
+                    )}
+
+                    {/* Submenu */}
+                    {item.children && isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{
+                          height: "auto",
+                          opacity: 1,
+                        }}
+                        exit={{
+                          height: 0,
+                          opacity: 0,
+                        }}
+                        className="overflow-hidden ml-4 mb-3"
+                      >
+                        {item.children.map((child) => {
+                          const isChildActive =
+                            pathname === child.href ||
+                            pathname.startsWith(child.href + "/");
+
+                          return (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={close}
+                              className={`
+                              flex items-center gap-3
+                              px-4 py-3
+                              rounded-xl
+                              text-sm
+                              transition-all duration-300
+
+                              ${
+                                isChildActive
+                                  ? "bg-white text-slate-900 shadow-md"
+                                  : "text-white hover:bg-white/10"
+                              }
+                            `}
+                            >
+                              <span
+                                className={`
+                                w-2 h-2 rounded-full
+                                ${isChildActive ? "bg-black" : "bg-white/40"}
+                              `}
+                              />
+
+                              <span>{child.label}</span>
+                            </Link>
+                          );
+                        })}
+                      </motion.div>
+                    )}
                   </motion.div>
                 );
               })}
