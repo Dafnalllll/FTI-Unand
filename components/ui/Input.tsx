@@ -19,7 +19,7 @@ export default function Input({
         rounded-full
         border border-slate-200
         bg-gray-100
-        px-4 py-2
+        px-2 py-2
         transition-all duration-300
         focus-within:border-gray-300
         focus-within:bg-white
