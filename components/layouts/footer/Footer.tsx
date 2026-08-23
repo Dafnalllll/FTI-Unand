@@ -4,7 +4,9 @@ import FooterLink from "./FooterLink";
 import FooterSocial from "./FooterSocial";
 import FooterPattern from "./FooterPattern";
 
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ChevronRight } from "lucide-react";
+
+import { navigation } from "@/data/navigation";
 
 export default function Footer() {
   return (
@@ -28,7 +30,7 @@ export default function Footer() {
       <div className="relative container mx-auto px-6 py-16">
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Logo & Description */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <div className="flex items-center gap-4 mb-5">
               <div>
                 <Image
@@ -104,18 +106,57 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="lg:col-span-2">
+          {/* Navigation */}
+          <div className="lg:col-span-3">
             <h4 className="font-bold text-sm uppercase tracking-widest text-gray-400 mb-5">
               Navigasi
             </h4>
 
-            <div className="flex flex-col gap-2.5">
-              <FooterLink href="/" label="Beranda" />
-              <FooterLink href="/profil" label="Profil" />
-              <FooterLink href="/akademik" label="Akademik" />
-              <FooterLink href="/berita" label="Berita" />
-              <FooterLink href="/kontak" label="Kontak" />
+            <div className="space-y-4">
+              {navigation.slice(0, 4).map((item) => (
+                <div key={item.label} className="relative w-fit">
+                  <div
+                    className="
+                    relative
+                    flex items-center gap-1.5
+                    w-fit
+                    text-sm
+                    font-medium
+                    text-gray-400
+                  "
+                  >
+                    <ChevronRight size={12} className="text-gray-400" />
+
+                    <span>{item.label}</span>
+
+                    <span
+                      className="
+                      absolute
+                      bottom-0
+                      left-0
+                      w-0
+                      h-px
+                      bg-white
+                      group-hover/title:w-full
+                      transition-all duration-300
+                    "
+                    />
+                  </div>
+
+                  {item.children && (
+                    <div className="mt-2 space-y-2 pl-4">
+                      {item.children.map((child) => (
+                        <FooterLink
+                          key={child.href}
+                          href={child.href}
+                          label={child.label}
+                          isChild
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
