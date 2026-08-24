@@ -15,11 +15,11 @@ export default function Input({
   return (
     <div
       className="
-        flex items-center gap-2.5
+        flex items-center gap-1
         rounded-full
         border border-slate-200
         bg-gray-100
-        px-2 py-2
+        px-1.5 py-1.5
         transition-all duration-300
         focus-within:border-gray-300
         focus-within:bg-white
