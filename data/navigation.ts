@@ -4,16 +4,27 @@ import { ROUTES } from "@/lib/routes";
 
 export const navigation = [
   {
+    label: "Beranda",
+    href: ROUTES.HOME,
+  },
+  {
     label: "Profil",
-    href: ROUTES.PROFIL,
     children: [
       {
         label: "Visi & Misi",
-        href: "/profil/visi-misi",
+        href: "/#visi-misi",
       },
       {
         label: "Tujuan",
-        href: "/profil/tujuan",
+        href: "/#tujuan",
+      },
+      {
+        label: "Sejarah",
+        href: "/#sejarah",
+      },
+      {
+        label: "Struktur",
+        href: "/#struktur",
       },
     ],
   },
@@ -97,7 +108,7 @@ export const navigation = [
       {
         label: "Download",
         href: "/layanan/download",
-      }
+      },
     ],
   },
   {

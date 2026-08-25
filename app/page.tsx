@@ -6,6 +6,11 @@ import { ArrowRight, ChevronDown, Play } from "lucide-react";
 import HeroImageCard from "@/components/card/heroimage";
 import HeroImageMobile from "@/components/card/heroimagemobile";
 
+import VisiMisi from "@/components/sections/Profil/VisiMisi";
+import Tujuan from "@/components/sections/Profil/Tujuan";
+import Sejarah from "@/components/sections/Profil/Sejarah";
+import Struktur from "@/components/sections/Profil/Struktur";
+
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const TITLE_LINES = ["Membentuk Generasi Unggul", "di Era Digital."];
@@ -51,16 +56,17 @@ export default function Home() {
       />
 
       <section
+        id="beranda"
         className="
         relative z-10
         flex
         items-center
-        min-h-[90vh]
-        lg:min-h-screen
-        lg:-translate-y-17.5
-        "
+        min-h-screen
+        -mt-8
+        lg:-mt-10
+      "
       >
-        <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+        <div className="mx-auto w-full max-w-7xl px-6 pt-28 lg:px-12 lg:pt-32">
           <div
             className="
             flex
@@ -189,50 +195,62 @@ export default function Home() {
             <HeroImageMobile />
           </div>
         </div>
-      </section>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 1,
-          delay: 1.6,
-        }}
-        className="
-        absolute
-        left-1/2
-        bottom-8
-        z-10
-        hidden
-        flex-col
-        items-center
-        gap-2
-        text-slate-600
-        xl:flex
-      "
-        style={{
-          transform: `
-      translateX(calc(-50% + ${SCROLL_INDICATOR.x}px))
-      translateY(${SCROLL_INDICATOR.y}px)
-    `,
-        }}
-      >
-        <span className="text-[12px] font-medium uppercase tracking-[0.25em]">
-          Scroll
-        </span>
-
+        {/* Scroll Indicator */}
         <motion.div
-          animate={{ y: [0, 6, 0] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{
-            duration: 1.6,
-            repeat: Infinity,
-            ease: "easeInOut",
+            duration: 1,
+            delay: 1.6,
+          }}
+          className="
+          absolute
+          left-1/2
+          -bottom-4
+          z-20
+          hidden
+          flex-col
+          items-center
+          gap-2
+          text-slate-600
+          xl:flex
+        "
+          style={{
+            transform: `
+            translateX(calc(-50% + ${SCROLL_INDICATOR.x}px))
+            translateY(${SCROLL_INDICATOR.y}px)
+          `,
           }}
         >
-          <ChevronDown className="h-4 w-4" />
+          <span className="text-[12px] font-medium uppercase tracking-[0.25em]">
+            Scroll
+          </span>
+
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{
+              duration: 1.6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <ChevronDown className="h-4 w-4" />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </section>
+
+      {/* Visi & Misi */}
+      <VisiMisi />
+
+      {/* Tujuan */}
+      <Tujuan />
+
+      {/* Sejarah */}
+      <Sejarah />
+
+      {/* Struktur */}
+      <Struktur />
     </main>
   );
 }

@@ -14,7 +14,10 @@ const misi = [
 
 export default function VisiMisi() {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section
+      id="visi-misi"
+      className="relative overflow-hidden py-24 scroll-mt-32"
+    >
       <div className="relative mx-auto max-w-7xl px-4 md:px-8">
         {/* Heading */}
         <motion.div
@@ -24,7 +27,7 @@ export default function VisiMisi() {
           transition={{ duration: 0.7, ease: EASE }}
         >
           <SectionTitle
-            badge="Profil Fakultas"
+            badge="Profil"
             title="Visi & Misi"
             subtitle="Landasan dan arah pengembangan Fakultas Teknologi Informasi Universitas Andalas."
           />

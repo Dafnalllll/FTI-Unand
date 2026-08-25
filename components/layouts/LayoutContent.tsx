@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Navbar from "./navbar/Navbar";
 import Footer from "./footer/Footer";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 interface LayoutContentProps {
   children: React.ReactNode;
@@ -22,6 +23,8 @@ export default function LayoutContent({ children }: LayoutContentProps) {
       <main className="flex-1">{children}</main>
 
       {!hideFooter && <Footer />}
+
+      <ScrollToTop />
     </>
   );
 }

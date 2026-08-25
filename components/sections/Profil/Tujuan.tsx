@@ -37,7 +37,10 @@ const tujuan = [
 
 export default function Tujuan() {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section
+      id="tujuan"
+      className="relative overflow-hidden py-24 scroll-mt-32"
+    >
       <div className="relative mx-auto max-w-6xl px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -46,7 +49,7 @@ export default function Tujuan() {
           transition={{ duration: 0.7, ease: EASE }}
         >
           <SectionTitle
-            badge="Profil Fakultas"
+            badge="Profil"
             title="Tujuan"
             subtitle="Tujuan strategis Fakultas Teknologi Informasi Universitas Andalas dalam mendukung pendidikan, penelitian, pengabdian, dan kerja sama."
           />
