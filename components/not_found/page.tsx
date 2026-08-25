@@ -3,7 +3,7 @@ import NotFoundActions from "./actions";
 
 export default function NotFoundPage() {
   return (
-    <section className="flex flex-1 items-center justify-center px-6 py-16 sm:py-24">
+    <section className="flex flex-1 justify-center px-6 pt-40 pb-16 sm:pt-48 sm:pb-24">
       <div className="w-full max-w-4xl">
         <div
           className="
@@ -23,8 +23,8 @@ export default function NotFoundPage() {
               <span
                 className="
                   inline-flex items-center gap-2 rounded-full
-                  border border-amber-200 bg-amber-50 px-3.5 py-1
-                  text-xs font-semibold uppercase tracking-widest text-amber-700
+                  border border-gray-200 bg-gray-50 px-3.5 py-1
+                  text-xs font-semibold uppercase tracking-widest text-gray-700
                 "
               >
                 Error 404
