@@ -26,8 +26,8 @@ export default function Struktur() {
         >
           <SectionTitle
             badge="Profil"
-            title="Pimpinan Fakultas"
-            subtitle="Para pemimpin Fakultas Teknologi Informasi Universitas Andalas yang berdedikasi dalam mengembangkan pendidikan, penelitian, dan inovasi teknologi."
+            title="Jajaran Dekanat"
+            subtitle="Dekan dan Wakil Dekan Fakultas Teknologi Informasi Universitas Andalas yang memimpin pengembangan pendidikan, penelitian, pengabdian kepada masyarakat, serta tata kelola fakultas."
           />
         </motion.div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { pimpinanData } from "@/data/struktur";
+import { pimpinanData } from "@/data/pimpinan";
 import { motion } from "framer-motion";
 
 interface StrukturCardProps {
@@ -15,7 +15,7 @@ export default function StrukturCard({
   index,
 }: StrukturCardProps) {
   return (
-      <motion.article
+    <motion.article
       initial={{
         opacity: 0,
         y: 60,
@@ -71,6 +71,9 @@ export default function StrukturCard({
             fill
             sizes="(max-width:768px) 256px, 288px"
             className="object-cover"
+            style={{
+              objectPosition: `${item.posX ?? "50%"} ${item.posY ?? "50%"}`,
+            }}
           />
         </div>
       </div>

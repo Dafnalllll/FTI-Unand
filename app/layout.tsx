@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+import { metadata } from "@/lib/metadata";
+
+export { metadata };
 import { Plus_Jakarta_Sans } from "next/font/google";
 
 import SplashProvider from "@/components/splashprovider";
@@ -11,11 +13,6 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   weight: ["300", "400", "500", "600", "700"],
 });
-
-export const metadata: Metadata = {
-  title: "FTI Universitas Andalas",
-  description: "Website Resmi Fakultas Teknologi Informasi Universitas Andalas",
-};
 
 export default function RootLayout({
   children,

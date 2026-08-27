@@ -197,3 +197,22 @@ div {
 .footer-glow {
   animation: floatHex 12s ease-in-out infinite;
 }
+
+/* DOSEN SWIPER */
+
+.swiper {
+  padding-bottom: 3rem;
+}
+
+.swiper-pagination {
+  bottom: 0 !important;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+  transform: scale(1.2);
+}

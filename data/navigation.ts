@@ -42,7 +42,7 @@ export const navigation = [
       },
       {
         label: "Tenaga Kependidikan",
-        href: "/sdm/tenaga-kependidikan",
+        href: "/sdm/tendik",
       },
     ],
   },
