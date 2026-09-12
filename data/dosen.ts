@@ -269,7 +269,7 @@ export const dosenData = [
   },
   {
     id: 30,
-    nama: "Rahmatika Pratam Santi S.SI, M.T",
+    nama: "Rahmatika Pratama Santi S.SI, M.T",
     jabatan: "",
     prodi: "Sistem Informasi",
     foto: "/images/dosen/sisteminformasi/rahmatika.webp",

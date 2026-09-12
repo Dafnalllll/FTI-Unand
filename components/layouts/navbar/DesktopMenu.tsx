@@ -1,5 +1,4 @@
 import NavItem from "./NavItem";
-import Input from "@/components/ui/Input";
 import { navigation } from "@/data/navigation";
 
 export default function DesktopMenu() {
@@ -17,9 +16,6 @@ export default function DesktopMenu() {
           <NavItem key={item.label} {...item} />
         ))}
       </nav>
-
-      {/* Search */}
-      <Input placeholder="Cari..." />
     </div>
   );
 }
